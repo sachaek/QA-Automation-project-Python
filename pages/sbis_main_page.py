@@ -1,5 +1,5 @@
 from .base_page import BasePage
-from .locators import TensorMainLocators
+from .locators import SbisMainLocators
 from .sbis_contacts_page import SbisContactsPage
 
 
@@ -12,10 +12,10 @@ class SbisMainPage(BasePage):
         self.check_for_current_page()
 
     def should_be_contacts_header(self):
-        assert self.is_element_present(*TensorMainLocators.CONTACTS_HEADER)
+        assert self.is_element_present(*SbisMainLocators.CONTACTS_HEADER)
 
     def click_contacts(self):
-        self.browser.find_element(*TensorMainLocators.CONTACTS_HEADER).click()
+        self.browser.find_element(*SbisMainLocators.CONTACTS_HEADER).click()
 
     def check_for_current_page(self):
         assert SbisContactsPage.link in self.browser.current_url, \

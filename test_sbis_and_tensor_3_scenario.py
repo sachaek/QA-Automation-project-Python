@@ -1,3 +1,5 @@
+from .pages.tensor_main_page import TensorMainPage
+from .pages.sbis_contacts_page import SbisContactsPage
 from .pages.sbis_main_page import SbisMainPage
 
 
@@ -16,4 +18,5 @@ def test_photos_size_first_scenario(browser):
     page.find_and_click_tensor_banner()
     page = TensorMainPage(browser, browser.current_url)
     page.checking_the_block_power_of_man()
+    page = TesorAboutPage(browser, browser.current_url)
     page.photo_size_comparison()
