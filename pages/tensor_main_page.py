@@ -1,5 +1,5 @@
 from .base_page import BasePage
-from .
+from .locators import TensorMainPageLocators
 
 
 class TensorMainPage(BasePage):
@@ -12,5 +12,9 @@ class TensorMainPage(BasePage):
         self.check_for_tensor_about_page()
 
     def should_be_power_of_man_block(self):
-        # element = self.browser.find_element(By.CSS_SELECTOR, "your-element-selector")
-        # driver.execute_script("arguments[0].scrollIntoView(true);", element)
+        assert self.is_element_present(*TensorMainPageLocators.POWER_OF_MAN_BLOCK)
+
+    def should_be_button_about(self):
+        assert self.is_element_present(*TensorMainPageLocators.POWER_OF_MAN_BLOCK_ABOUT_BUTTON)
+
+

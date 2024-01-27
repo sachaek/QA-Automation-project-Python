@@ -10,5 +10,6 @@ class SbisContactsLocators:
     TENSOR_BANNER = (By.CSS_SELECTOR, TENSOR_CLICKABLE_BANNER[1] + ' > img')
 
 
-class TensorMainPage:
+class TensorMainPageLocators:
     POWER_OF_MAN_BLOCK = (By.CSS_SELECTOR, ".tensor_ru-Index__block4-content.tensor_ru-Index__card")
+    POWER_OF_MAN_BLOCK_ABOUT_BUTTON = (By.XPATH, "//a[text()='Подробнее' and @href='/about']")
