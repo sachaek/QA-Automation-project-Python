@@ -1,3 +1,5 @@
+import time
+
 from .base_page import BasePage
 from .locators import SbisContactsLocators
 from .tensor_main_page import TensorMainPage
@@ -19,6 +21,7 @@ class SbisContactsPage(BasePage):
         self.browser.find_element(*SbisContactsLocators.TENSOR_CLICKABLE_BANNER).click()
 
     def check_for_tensor_page(self):
-        assert self.is_element_present(*SbisContactsLocators.TO_MAIN_TENSOR)
-        assert  TensorMainPage.link == self.browser.current_url, \
+        new_window = self.browser.window_handles[1]
+        self.browser.switch_to.window(new_window)
+        assert TensorMainPage.link == self.browser.current_url, \
             f"current page are not tensor.ru, current page : {self.browser.current_url}"
