@@ -13,10 +13,12 @@ class TensorMainPage(BasePage):
         self.check_for_tensor_about_page()
 
     def should_be_power_of_man_block(self):
-        assert self.is_element_present(*TensorMainPageLocators.POWER_OF_MAN_BLOCK)
+        assert self.is_element_present(*TensorMainPageLocators.POWER_OF_MAN_BLOCK), \
+            "There's no <POWER OF MAN> block "
 
     def should_be_button_about(self):
-        assert self.is_element_present(*TensorMainPageLocators.POWER_OF_MAN_BLOCK_ABOUT_BUTTON)
+        assert self.is_element_present(*TensorMainPageLocators.POWER_OF_MAN_BLOCK_ABOUT_BUTTON), \
+            "There's no ABOUT button in <POWER OF MAN> block "
 
     def click_button_about(self):
         element = self.browser.find_element(*TensorMainPageLocators.POWER_OF_MAN_BLOCK)
@@ -28,4 +30,3 @@ class TensorMainPage(BasePage):
         self.browser.switch_to.window(new_window)
         assert TensorAboutPage.link == self.browser.current_url, \
             f"current page are not TensorAboutPage, current page : {self.browser.current_url}"
-
