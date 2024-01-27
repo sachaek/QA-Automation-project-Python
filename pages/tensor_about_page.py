@@ -3,4 +3,4 @@ from .locators import TensorMainPageLocators
 
 
 class TensorAboutPage(BasePage):
-    link = 'https://tensor.ru/'
+    link = 'https://tensor.ru/about'
