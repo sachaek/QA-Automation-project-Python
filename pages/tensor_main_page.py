@@ -17,4 +17,9 @@ class TensorMainPage(BasePage):
     def should_be_button_about(self):
         assert self.is_element_present(*TensorMainPageLocators.POWER_OF_MAN_BLOCK_ABOUT_BUTTON)
 
+    def click_button_about(self):
+        element = self.browser.find_element(*TensorMainPageLocators.POWER_OF_MAN_BLOCK_ABOUT_BUTTON)
+        self.browser.execute_script("arguments[0].scrollIntoView(true);", element)
+        element.click()
 
+    def check_for_tensor_about_page
