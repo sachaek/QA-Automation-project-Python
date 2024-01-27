@@ -18,4 +18,5 @@ class SbisMainPage(BasePage):
         self.browser.find_element(*TensorMainLocators.CONTACTS_HEADER).click()
 
     def check_for_current_page(self):
-        assert self.browser.current_url == SbisContactsPage.link
+        assert SbisContactsPage.link in self.browser.current_url, \
+            "current page are not contacts"

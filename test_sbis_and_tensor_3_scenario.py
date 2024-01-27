@@ -1,4 +1,4 @@
-from pages.sbis_main_page import SbisMainPage
+from .pages.sbis_main_page import SbisMainPage
 
 
 def test_photos_size_first_scenario(browser):
