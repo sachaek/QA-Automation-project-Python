@@ -1,3 +1,4 @@
+from pages.sbis_main_page import SbisMainPage
 
 
 def test_photos_size_first_scenario(browser):
@@ -11,6 +12,7 @@ def test_photos_size_first_scenario(browser):
     page = SbisMainPage(browser, link)
     page.open()
     page.find_and_click_contacts()
+    page = SbisContactsPage(browser, browser.current_url)
     page.find_and_click_tensor_banner()
     page = TensorMainPage(browser, browser.current_url)
     page.checking_the_block_power_of_man()
