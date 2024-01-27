@@ -22,4 +22,8 @@ class TensorMainPage(BasePage):
         self.browser.execute_script("arguments[0].scrollIntoView(true);", element)
         element.click()
 
-    def check_for_tensor_about_page
+    def check_for_tensor_about_page(self):
+        new_window = self.browser.window_handles[-1]
+        self.browser.switch_to.window(new_window)
+        assert TensorMainPage.link == self.browser.current_url, \
+            f"current page are not tensor.ru, current page : {self.browser.current_url}
