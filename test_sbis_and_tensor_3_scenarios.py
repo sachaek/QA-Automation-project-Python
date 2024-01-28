@@ -1,3 +1,4 @@
+# from .local_machine.my_computer import MyComputer
 from .pages.tensor_about_page import TensorAboutPage
 from .pages.tensor_main_page import TensorMainPage
 from .pages.sbis_contacts_page import SbisContactsPage
@@ -32,5 +33,6 @@ def test_download_file_sbis_third_scenario(browser):
     page.find_and_click_download_sbis()
     page = SbisDownloadPage(browser, browser.current_url)
     page.download_windows_sbis_plugin()
-    my_pc = MyComputer(SbisDownloadPage.link_to_download)
-    my_pc.check_file_size()
+    assert False, f"{SbisDownloadPage.link_to_download}"
+    # my_pc = MyComputer(SbisDownloadPage.link_to_download)
+    # my_pc.check_file_size()
