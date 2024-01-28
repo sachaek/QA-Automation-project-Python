@@ -17,6 +17,13 @@ class TensorAboutPage(BasePage):
 
     def check_photo_size_attributes(self):
         photos = self.browser.find_elements(*TensorAboutPageLocators.PHOTOS)
+        count = 0
         for photo in photos:
+            count += (photo.get_attribute('width') == '270')
+            count += (photo.get_attribute('height') == '192')
+        assert count == 8, \
+            "One of photo sizes are not Expected (Expected: 270x192)"
+
+
 
 
