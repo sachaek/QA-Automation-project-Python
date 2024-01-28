@@ -23,3 +23,4 @@ def test_change_to_kamchatka_second_scenario(browser):
     page = SbisContactsPage(browser, browser.current_url)
     page.check_for_ural_region()
     page.change_to_Kamchatka_region()
+

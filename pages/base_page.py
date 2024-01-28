@@ -42,3 +42,10 @@ class BasePage:
         except TimeoutException:
             return False
         return True
+
+    def scroll_to_locator(self, how, what, presented=True):
+        if not presented:
+            assert self.is_element_present(how, what), \
+                "There's no element"
+        element = self.browser.find_element(how, what)
+        self.browser.execute_script("arguments[0].scrollIntoView(true);", element)

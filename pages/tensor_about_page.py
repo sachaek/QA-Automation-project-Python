@@ -14,8 +14,7 @@ class TensorAboutPage(BasePage):
     def scroll_to_we_are_working_block(self):
         assert self.is_element_present(*TensorAboutPageLocators.WORKING_BLOCK), \
             "There's no <We are Working> block"
-        element = self.browser.find_element(*TensorAboutPageLocators.WORKING_BLOCK)
-        self.browser.execute_script("arguments[0].scrollIntoView(true);", element)
+        self.scroll_to_locator(*TensorAboutPageLocators.WORKING_BLOCK)
 
     def check_photo_size_attributes(self):
         self.browser.find_element(*TensorAboutPageLocators.LAST_PHOTO) # wait for load images
