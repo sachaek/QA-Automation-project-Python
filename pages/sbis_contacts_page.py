@@ -1,4 +1,4 @@
-from .sbis_contacts_regions import UralRegion
+from .sbis_contacts_regions import UralRegion, KamchatkaRegion
 from .base_page import BasePage
 from .locators import SbisContactsLocators
 from .tensor_main_page import TensorMainPage
@@ -25,12 +25,16 @@ class SbisContactsPage(BasePage):
         assert TensorMainPage.link == self.browser.current_url, \
             f"current page are not tensor.ru, current page : {self.browser.current_url}"
 
-    def check_for_region(self):
+    def check_for_ural_region(self):
         self.region = UralRegion()
+        self.check_for_region()
+        self.region = None
+        self.should_be_partners_list()
+
+    def check_for_region(self):
         self.should_be_my_region_in_current_url()
         self.should_be_my_region_near_contacts()
         self.should_be_main_city_of_region_in_the_top_of_partners()
-        self.should_be_partners_list()
 
     def should_be_my_region_in_current_url(self):
         assert self.region.MY_REGION_SUBSTRING in self.browser.current_url
@@ -51,5 +55,9 @@ class SbisContactsPage(BasePage):
         assert self.is_element_present(*SbisContactsLocators.PARTNER_LIST_BLOCK)
 
     def change_to_Kamchatka_region(self):
-        pass
+        self.region = KamchatkaRegion()
+        self.click_to_region_text()
+        self.check_for_region()
+        self.should_be_partners_list()
+
 

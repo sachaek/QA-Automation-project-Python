@@ -21,5 +21,5 @@ def test_change_to_kamchatka_second_scenario(browser):
     page.open()
     page.find_and_click_contacts()
     page = SbisContactsPage(browser, browser.current_url)
-    page.check_for_region()
+    page.check_for_Ural_region()
     page.change_to_Kamchatka_region()
