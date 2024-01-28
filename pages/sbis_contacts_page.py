@@ -45,8 +45,11 @@ class SbisContactsPage(BasePage):
     def should_be_my_region_near_contacts(self):
         assert self.is_element_present(*SbisContactsLocators.REGION_NEAR_CONTACTS), \
             "There's no name of region, near the contacs"
+        assert self.check_for_url_matches(self.region.MY_REGION_SUBSTRING)
         assert self.region.MY_REGION_NAME_RUS in self.browser.find_element(*SbisContactsLocators.REGION_NEAR_CONTACTS).text, \
-            "Not <MY_REGION_NAME_RUS> in text"
+            "Not <MY_REGION_NAME_RUS> in text, "\
+            f"Should be <{self.region.MY_REGION_NAME_RUS}>" \
+            f", current: <{self.browser.find_element(*SbisContactsLocators.REGION_NEAR_CONTACTS).text}>"
 
     def should_be_main_city_of_region_in_the_top_of_partners(self):
         assert self.is_element_present(*SbisContactsLocators.CITY_OF_PARTNER_LIST), \

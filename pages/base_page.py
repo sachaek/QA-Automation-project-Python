@@ -35,3 +35,10 @@ class BasePage:
             """,
             element
         )
+
+    def check_for_url_matches(self, url) -> bool:
+        try:
+            WebDriverWait(self.browser, 3).until(EC.url_matches(url))
+        except TimeoutException:
+            return False
+        return True
