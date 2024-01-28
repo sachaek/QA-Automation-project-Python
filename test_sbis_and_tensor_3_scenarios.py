@@ -32,5 +32,5 @@ def test_download_file_sbis_third_scenario(browser):
     page.find_and_click_download_sbis()
     page = SbisDownloadPage(browser, browser.current_url)
     page.download_windows_sbis_plugin()
-    my_pc = MyComputer(SbisMainPage.data)
+    my_pc = MyComputer(browser.data)
     my_pc.check_file()

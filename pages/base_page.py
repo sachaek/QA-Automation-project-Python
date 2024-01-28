@@ -12,6 +12,10 @@ class BasePage:
         self.url = url
         self.browser.implicitly_wait(timeout)
         self.region = None
+        try:
+            self.browser.data
+        except AttributeError:
+            self.browser.data = None
 
     def open(self):
         self.browser.get(self.url)
