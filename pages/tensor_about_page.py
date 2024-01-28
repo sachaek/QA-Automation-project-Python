@@ -26,5 +26,3 @@ class TensorAboutPage(BasePage):
             count += (photo.get_attribute('height') == '192')
         assert count == 8, \
             f"One of photo sizes are not Expected (Expected: 270x192)"
-
-
