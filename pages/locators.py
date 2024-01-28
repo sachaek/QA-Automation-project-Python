@@ -16,8 +16,10 @@ class SbisContactsLocators:
 
 
 class SbisDownloadLocators:
-    SBIS_PLUGIN = (By.XPATH, '//div[@class="controls-TabButton__caption" and text()="СБИС Плагин"]')
+    SBIS_PLUGIN = (By.CSS_SELECTOR, 'div[data-id=plugin] > div.controls-tabButton__overlay')
+    # SBIS_PLUGIN = (By.XPATH, '//div[@class="controls-TabButton__caption" and text()="СБИС Плагин"]')
     SBIS_WIN32_CLIENT = (By.CSS_SELECTOR, 'a[href*="master/win32"][href*="exe"]')
+
 
 
 class TensorMainPageLocators:

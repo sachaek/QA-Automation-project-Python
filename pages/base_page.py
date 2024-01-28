@@ -53,3 +53,12 @@ class BasePage:
                 "There's no element"
         element = self.browser.find_element(how, what)
         self.browser.execute_script("arguments[0].scrollIntoView(true);", element)
+
+    def element_is_clickable(self, how, what, timeout=10) -> bool:
+        try:
+            WebDriverWait(self.browser, timeout).until(
+                EC.element_to_be_clickable((how, what))
+            )
+        except TimeoutException:
+            return False
+        return True

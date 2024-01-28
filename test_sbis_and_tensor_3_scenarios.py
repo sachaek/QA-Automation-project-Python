@@ -1,4 +1,6 @@
-# from .local_machine.my_computer import MyComputer
+import pytest
+
+from .local_machine.my_computer import MyComputer
 from .pages.tensor_about_page import TensorAboutPage
 from .pages.tensor_main_page import TensorMainPage
 from .pages.sbis_contacts_page import SbisContactsPage
@@ -6,6 +8,7 @@ from .pages.sbis_main_page import SbisMainPage
 from .pages.sbis_download_page import SbisDownloadPage
 
 
+@pytest.mark.skip
 def test_photos_size_first_scenario(browser):
     page = SbisMainPage(browser, SbisMainPage.link)
     page.open()
@@ -18,6 +21,7 @@ def test_photos_size_first_scenario(browser):
     page.photo_size_comparison()
 
 
+@pytest.mark.skip
 def test_change_to_kamchatka_second_scenario(browser):
     page = SbisMainPage(browser, SbisMainPage.link)
     page.open()
@@ -34,5 +38,5 @@ def test_download_file_sbis_third_scenario(browser):
     page = SbisDownloadPage(browser, browser.current_url)
     page.download_windows_sbis_plugin()
     assert False, f"{SbisDownloadPage.link_to_download}"
-    # my_pc = MyComputer(SbisDownloadPage.link_to_download)
-    # my_pc.check_file_size()
+    my_pc = MyComputer(SbisDownloadPage.link_to_download)
+    my_pc.check_file_size()

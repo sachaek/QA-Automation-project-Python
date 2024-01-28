@@ -9,34 +9,23 @@ with open('song.mp3', 'wb') as file:
 
 
 class MyComputer:
-    project_path = ""
-    def __init__(self, link):
+    project_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+    def __init__(self, link: str, size_mb: float):
         self.link = link
-        self.response = requests.get(self.link)
 
     def download_file(self, path):
-        with open(f'{path}+/file.exe', 'wb') as file:
-            file.write(self.response.content)
+        response = requests.get(self.link)
+        with open(f'{path}+/sbis_plugin.exe', 'wb') as file:
+            file.write(response.content)
 
-    def get_file_size(self, path):
-        file_info = os.stat(path)
+    def get_file_size(self, path, file_name):
+        file_info = os.stat(path + f"/{file_name}")
         file_size = file_info.st_size
         return file_size
 
-
-
-
-        """BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
->>> BASE_DIR
-'/home/user/projects/myproject'
->>> os.path.dirname(BASE_DIR)
-'/home/user/projects'"""
-
-
-import os
-
-file_info = os.stat('path_to_your_file')
-file_size = file_info.st_size
-print('Размер файла:', file_size, 'байт')
+    def check_file_size(self):
+        self.download_file(self.project_path)
+        size = self.get_file_size(self.project_path, "sbis_plugin.exe")
+        print(size)
 
