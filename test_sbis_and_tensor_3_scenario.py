@@ -15,3 +15,9 @@ def test_photos_size_first_scenario(browser):
     page = TensorAboutPage(browser, browser.current_url)
     page.photo_size_comparison()
 
+
+# def test_change_to_kamchatka_second_scenario(browser):
+#     page = page = SbisMainPage(browser, SbisMainPage.link)
+#     page.open()
+#     page.find_and_click_contacts()
+#     page = SbisContactsPage(browser, browser.current_url)
