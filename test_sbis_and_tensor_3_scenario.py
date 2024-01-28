@@ -14,3 +14,4 @@ def test_photos_size_first_scenario(browser):
     page.checking_the_block_power_of_man()
     page = TensorAboutPage(browser, browser.current_url)
     page.photo_size_comparison()
+
