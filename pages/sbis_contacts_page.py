@@ -44,9 +44,12 @@ class SbisContactsPage(BasePage):
     def should_be_main_city_of_region_in_the_top_of_partners(self):
         assert self.is_element_present(*SbisContactsLocators.CITY_OF_PARTNER_LIST), \
             "There's no name of region, near the partner list"
-        assert self.region.MAIN_CITY_OF_MY_REGION in self.browser.find_element(*SbisContactsLocators.CITY_OF_PARTNER_LIST),\
+        assert self.region.MAIN_CITY_OF_MY_REGION in self.browser.find_element(*SbisContactsLocators.CITY_OF_PARTNER_LIST).text,\
             "WRONG MAIN CITY NAME in text, in top of partner list"
 
     def should_be_partners_list(self):
         assert self.is_element_present(*SbisContactsLocators.PARTNER_LIST_BLOCK)
+
+    def change_to_Kamchatka_region(self):
+        pass
 
