@@ -60,4 +60,7 @@ class SbisContactsPage(BasePage):
         self.check_for_region()
         self.should_be_partners_list()
 
+    def click_to_region_text(self):
+        pass
+
 
