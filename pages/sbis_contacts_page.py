@@ -25,3 +25,19 @@ class SbisContactsPage(BasePage):
         self.browser.switch_to.window(new_window)
         assert TensorMainPage.link == self.browser.current_url, \
             f"current page are not tensor.ru, current page : {self.browser.current_url}"
+
+    def check_for_region(self):
+        self.should_be_my_region_in_current_url()
+        self.should_be_my_region_near_contacts()
+
+    def should_be_my_region_in_current_url(self):
+        MY_REGION_SUBSTRING = "66-sverdlovskaya-oblast"
+        assert MY_REGION_SUBSTRING in self.browser.current_url
+
+    def should_be_my_region_near_contacts(self):
+        MY_REGION_NAME_RUS = "Свердловская"
+        assert self.is_element_present(*SbisContactsLocators.REGION_NEAR_CONTACTS), \
+            "There's no name of region, near the contacs"
+        assert MY_REGION_NAME_RUS in self.browser.find_element(*SbisContactsLocators.REGION_NEAR_CONTACTS).text, \
+            "Not <MY_REGION_NAME_RUS> in text"
+

@@ -8,6 +8,7 @@ class SbisMainLocators:
 class SbisContactsLocators:
     TENSOR_CLICKABLE_BANNER = (By.CSS_SELECTOR, 'div.mt-xm-12 > a.sbisru-Contacts__logo-tensor')
     TENSOR_BANNER = (By.CSS_SELECTOR, TENSOR_CLICKABLE_BANNER[1] + ' > img')
+    REGION_NEAR_CONTACTS = (By.CSS_SELECTOR, ".sbis_ru-Region-Chooser.ml-16.ml-xm-0 > .sbis_ru-Region-Chooser__text.sbis_ru-link")
 
 
 class TensorMainPageLocators:
