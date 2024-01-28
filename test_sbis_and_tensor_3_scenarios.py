@@ -2,6 +2,7 @@ from .pages.tensor_about_page import TensorAboutPage
 from .pages.tensor_main_page import TensorMainPage
 from .pages.sbis_contacts_page import SbisContactsPage
 from .pages.sbis_main_page import SbisMainPage
+from .pages.sbis_download_page import SbisDownloadPage
 
 
 def test_photos_size_first_scenario(browser):
