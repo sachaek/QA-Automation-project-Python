@@ -1,3 +1,5 @@
+import time
+
 from .sbis_contacts_regions import UralRegion, KamchatkaRegion
 from .base_page import BasePage
 from .locators import SbisContactsLocators
@@ -32,12 +34,13 @@ class SbisContactsPage(BasePage):
         self.should_be_partners_list()
 
     def check_for_region(self):
-        self.should_be_my_region_in_current_url()
         self.should_be_my_region_near_contacts()
         self.should_be_main_city_of_region_in_the_top_of_partners()
+        self.should_be_my_region_in_current_url()
 
     def should_be_my_region_in_current_url(self):
-        assert self.region.MY_REGION_SUBSTRING in self.browser.current_url
+        assert self.region.MY_REGION_SUBSTRING in self.browser.current_url, \
+            f"Expacted url contains: {self.region.MY_REGION_SUBSTRING}, current url: {self.browser.current_url}"
 
     def should_be_my_region_near_contacts(self):
         assert self.is_element_present(*SbisContactsLocators.REGION_NEAR_CONTACTS), \
@@ -57,10 +60,21 @@ class SbisContactsPage(BasePage):
     def change_to_Kamchatka_region(self):
         self.region = KamchatkaRegion()
         self.click_to_region_text()
+        self.click_to_kamchatka_text()
         self.check_for_region()
         self.should_be_partners_list()
+        self.region = None
 
     def click_to_region_text(self):
-        pass
+        self.browser.find_element(*SbisContactsLocators.REGION_NEAR_CONTACTS).click()
+
+    def click_to_kamchatka_text(self):
+        assert self.is_element_present(*SbisContactsLocators.KAMCHATKA_BUTTON), \
+            "There's no Kamchatka Button"
+        self.browser.find_element(*SbisContactsLocators.KAMCHATKA_BUTTON).click()
+
+
+
+
 
 
