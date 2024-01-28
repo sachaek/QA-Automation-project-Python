@@ -9,6 +9,9 @@ class SbisContactsLocators:
     TENSOR_CLICKABLE_BANNER = (By.CSS_SELECTOR, 'div.mt-xm-12 > a.sbisru-Contacts__logo-tensor')
     TENSOR_BANNER = (By.CSS_SELECTOR, TENSOR_CLICKABLE_BANNER[1] + ' > img')
     REGION_NEAR_CONTACTS = (By.CSS_SELECTOR, ".sbis_ru-Region-Chooser.ml-16.ml-xm-0 > .sbis_ru-Region-Chooser__text.sbis_ru-link")
+    CITY_OF_PARTNER_LIST = (By.CSS_SELECTOR, "#city-id-2")
+    PARTNER_LIST_BLOCK = (By.CSS_SELECTOR, ".sbisru-Contacts-List__col")
+    KAMCHATKA_BUTTON = (By.CSS_SELECTOR, 'span[title="Камчатский край"]')
 
 
 class TensorMainPageLocators:

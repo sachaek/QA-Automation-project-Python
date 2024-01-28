@@ -29,6 +29,8 @@ class SbisContactsPage(BasePage):
     def check_for_region(self):
         self.should_be_my_region_in_current_url()
         self.should_be_my_region_near_contacts()
+        self.should_be_main_city_of_region_in_the_top_of_partners()
+        self.should_be_partners_list()
 
     def should_be_my_region_in_current_url(self):
         MY_REGION_SUBSTRING = "66-sverdlovskaya-oblast"
@@ -40,4 +42,14 @@ class SbisContactsPage(BasePage):
             "There's no name of region, near the contacs"
         assert MY_REGION_NAME_RUS in self.browser.find_element(*SbisContactsLocators.REGION_NEAR_CONTACTS).text, \
             "Not <MY_REGION_NAME_RUS> in text"
+
+    def should_be_main_city_of_region_in_the_top_of_partners(self):
+        MAIN_CITY_OF_MY_REGION = "Екатеринбург"
+        assert self.is_element_present(*SbisContactsLocators.CITY_OF_PARTNER_LIST), \
+            "There's no name of region, near the partner list"
+        assert MAIN_CITY_OF_MY_REGION in self.browser.find_element(*SbisContactsLocators.CITY_OF_PARTNER_LIST),\
+            "WRONG MAIN CITY NAME in text, in top of partner list"
+
+    def should_be_partners_list(self):
+        assert self.is_element_present(*SbisContactsLocators.PARTNER_LIST_BLOCK)
 
