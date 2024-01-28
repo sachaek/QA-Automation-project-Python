@@ -24,5 +24,12 @@ def test_change_to_kamchatka_second_scenario(browser):
     page.check_for_ural_region()
     page.change_to_Kamchatka_region()
 
-def test_download_file_sbis(browser):
-    page = S
+
+def test_download_file_sbis_third_scenario(browser):
+    page = SbisMainPage(browser, SbisMainPage.link)
+    page.open()
+    page.find_and_click_download_sbis()
+    page = SbisDownload(browser, browser.current_url)
+    page.download_windows_sbis_plugin()
+    my_pc = MyComputer()
+    my_pc.check_file()
