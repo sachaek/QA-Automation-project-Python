@@ -10,7 +10,8 @@ class SbisMainPage(BasePage):
     def find_and_click_contacts(self):
         self.should_be_contacts_header()
         self.click_contacts()
-        self.check_for_current_page(self.link)
+        self.check_for_url_matches(SbisContactsPage.link)
+        self.check_for_current_page(SbisContactsPage.link, strict=False)
 
     def should_be_contacts_header(self):
         assert self.is_element_present(*SbisMainLocators.CONTACTS_HEADER)
@@ -20,10 +21,10 @@ class SbisMainPage(BasePage):
 
     def check_for_current_page(self, link, strict=True):
         if strict:
-            assert SbisContactsPage.link == self.browser.current_url, \
+            assert link == self.browser.current_url, \
                 f"current page is not <{link}>, it's: <{self.browser.current_url}>"
         else:
-            assert SbisContactsPage.link in self.browser.current_url, \
+            assert link in self.browser.current_url, \
                 f"current page not matches <{link}>, it's: <{self.browser.current_url}>"
 
     def find_and_click_download_sbis(self):
@@ -31,4 +32,4 @@ class SbisMainPage(BasePage):
             "There's no <DOWNLOAD SBIS> button"
         self.scroll_to_locator(*SbisMainLocators.DOWNLOAD_SBIS_BUTTON)
         self.browser.find_element(*SbisMainLocators.DOWNLOAD_SBIS_BUTTON).click()
-        self.check_for_current_page(SbisDownloadPage, strict=False)
+        self.check_for_current_page(SbisDownloadPage.link, strict=False)

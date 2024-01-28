@@ -30,6 +30,7 @@ def test_download_file_sbis_third_scenario(browser):
     page = SbisMainPage(browser, SbisMainPage.link)
     page.open()
     page.find_and_click_download_sbis()
+    assert False, "kuku"
     page = SbisDownloadPage(browser, browser.current_url)
     page.download_windows_sbis_plugin()
     my_pc = MyComputer(browser.data)
