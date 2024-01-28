@@ -21,3 +21,16 @@ class BasePage:
         except NoSuchElementException:
             return False
         return True
+
+    def get_attributes(self, element) -> dict:
+        return self.browser.execute_script(
+            """
+            let attr = arguments[0].attributes;
+            let items = {}; 
+            for (let i = 0; i < attr.length; i++) {
+                items[attr[i].name] = attr[i].value;
+            }
+            return items;
+            """,
+            element
+        )

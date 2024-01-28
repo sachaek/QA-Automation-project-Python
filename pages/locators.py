@@ -16,4 +16,5 @@ class TensorMainPageLocators:
 
 
 class TensorAboutPageLocators:
-    WORKING_BLOCK = (By.CSS_SELECTOR, ".tensor_ru - About__block - title - block +.s - Grid - container")
+    WORKING_BLOCK = (By.CSS_SELECTOR, ".tensor_ru-About__block-title-block +.s-Grid-container")
+    PHOTOS = (By.CSS_SELECTOR, "img.tensor_ru-About__block3-image.new_lazy.loaded")
