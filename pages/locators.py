@@ -15,6 +15,11 @@ class SbisContactsLocators:
     KAMCHATKA_BUTTON = (By.CSS_SELECTOR, 'span[title="Камчатский край"]')
 
 
+class SbisDownloadLocators:
+    SBIS_PLUGIN = (By.XPATH, '//div[@class="controls-TabButton__caption" and text()="СБИС Плагин"]')
+    SBIS_WIN32_CLIENT = (By.CSS_SELECTOR, 'a[href*="master/win32"][href*="exe"]')
+
+
 class TensorMainPageLocators:
     POWER_OF_MAN_BLOCK = (By.CSS_SELECTOR, ".tensor_ru-Index__block4-content.tensor_ru-Index__card")
     POWER_OF_MAN_BLOCK_ABOUT_BUTTON = (By.XPATH, "//a[text()='Подробнее' and @href='/about']")
