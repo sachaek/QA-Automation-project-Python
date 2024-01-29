@@ -5,6 +5,20 @@ from .sbis_download_page import SbisDownloadPage
 
 
 class SbisMainPage(BasePage):
+    """
+    Represents the Sbis Main page with specific methods for interaction.
+
+    Attributes:
+        link (str): The URL of the Sbis Main page.
+
+    Methods:
+        find_and_click_contacts(): Finds and clicks the Contacts header, checking for the Contacts page afterward.
+        should_be_contacts_header(): Asserts the presence of the Contacts header on the page.
+        click_contacts(): Clicks on the Contacts header.
+        check_for_current_page(link, strict=True): Checks if the current page matches the specified link.
+        find_and_click_download_sbis(): Finds and clicks the Download SBIS button, checking for the Download page
+        afterward.
+    """
     link = 'https://sbis.ru/'
 
     def find_and_click_contacts(self):
@@ -20,6 +34,17 @@ class SbisMainPage(BasePage):
         self.browser.find_element(*SbisMainLocators.CONTACTS_HEADER).click()
 
     def check_for_current_page(self, link, strict=True):
+        """
+        Checks if the current page matches the specified link.
+
+        Args:
+            link (str): The expected link of the page.
+            strict (bool, optional): If True, performs an exact match; if False, checks if the link is present
+             in the current URL.
+
+        Raises:
+            AssertionError: If the current page does not match the expected link.
+        """
         if strict:
             assert link == self.browser.current_url, \
                 f"current page is not <{link}>, it's: <{self.browser.current_url}>"
