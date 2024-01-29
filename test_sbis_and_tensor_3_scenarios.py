@@ -8,7 +8,6 @@ from .pages.sbis_main_page import SbisMainPage
 from .pages.sbis_download_page import SbisDownloadPage
 
 
-@pytest.mark.skip
 def test_photos_size_first_scenario(browser):
     page = SbisMainPage(browser, SbisMainPage.link)
     page.open()
@@ -21,7 +20,6 @@ def test_photos_size_first_scenario(browser):
     page.photo_size_comparison()
 
 
-@pytest.mark.skip
 def test_change_to_kamchatka_second_scenario(browser):
     page = SbisMainPage(browser, SbisMainPage.link)
     page.open()
