@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 
 class SbisMainLocators:
     CONTACTS_HEADER = (By.CSS_SELECTOR, 'a.sbisru-Header__menu-link[href="/contacts"]')
-    DOWNLOAD_SBIS_BUTTON = (By.XPATH, '//a[text()="Скачать СБИС"]')
+    DOWNLOAD_SBIS_BUTTON = (By.XPATH, '//a[text()="Скачать локальные версии"]')
 
 
 class SbisContactsLocators:

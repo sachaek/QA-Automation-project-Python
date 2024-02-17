@@ -57,4 +57,4 @@ class SbisMainPage(BasePage):
             "There's no <DOWNLOAD SBIS> button"
         self.scroll_to_locator(*SbisMainLocators.DOWNLOAD_SBIS_BUTTON)
         self.browser.find_element(*SbisMainLocators.DOWNLOAD_SBIS_BUTTON).click()
-        self.check_for_current_page(SbisDownloadPage.link, strict=False)
+        self.check_for_current_page(SbisDownloadPage.link_matches_main, strict=False)
