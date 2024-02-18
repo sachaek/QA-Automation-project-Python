@@ -1,6 +1,6 @@
-# tensor_test_task
+# QA AUtomation Project
 
-Тестовый проект на Python с использованием pytest и Selenium
+Проект на Python с использованием pytest и Selenium
 Проект представляет собой набор тестовых сценариев для веб-приложений Tensor.ru и Sbis.ru с использованием библиотек pytest и Selenium.
 
 ## Используемые модули
