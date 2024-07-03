@@ -32,7 +32,6 @@ class SbisDownloadPage(BasePage):
 
     def click_to_sbis_plugin_tab(self):
         """Clicks on the eReport tab to access the Sbis plugin section."""
-        time.sleep(1)
         self.browser.find_element(*SbisDownloadLocators.SBIS_PLUGIN).click()
 
     def get_link_to_download(self):
